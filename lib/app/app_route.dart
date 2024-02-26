@@ -6,7 +6,6 @@ import 'package:whats_app_clone/core/reusables/my_text.dart';
 import 'package:whats_app_clone/core/theme/typo.dart';
 import 'package:whats_app_clone/core/utils/tab_screen.dart';
 
-
 const int tabLength = 4;
 const String title = "WhatsApp";
 
@@ -22,8 +21,7 @@ class TabRoute extends StatelessWidget {
       length: tabLength,
       child: Scaffold(
         appBar: AppBar(
-          toolbarHeight: Adaptive.dp(0.50),
-          // backgroundColor: theme.tertiary,
+          toolbarHeight: Adaptive.dp(0.56),
           title: Container(
             margin: EdgeInsets.only(bottom: 0.4.dp),
             child: Row(

@@ -37,7 +37,6 @@ dependencies:
   flutter_bloc: ^8.1.4
   flutter_slidable: ^3.0.1
   responsive_sizer: ^3.3.0+1
-
   flutter:
     sdk: flutter
   firebase_core: ^2.25.4
