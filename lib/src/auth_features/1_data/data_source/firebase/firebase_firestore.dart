@@ -4,14 +4,17 @@ import 'package:firebase_auth/firebase_auth.dart';
 class FirebaseCloudService {
   final CollectionReference users =
       FirebaseFirestore.instance.collection('users');
-// add user into database
-  Future<void> addUserToFireStore(UserCredential userCredential, String email) =>
-      users.doc(userCredential.user!.uid).set({
-        'uid': userCredential.user!.uid,
-        'email': email,
-      });
+// STORE USERS INSIDE FIRESTORE DATABASE
+  Future<void> saveUserIntoFireStore(
+          UserCredential userCredential, String email) =>
+      users.doc(userCredential.user!.uid).set(
+        {
+          'uid': userCredential.user!.uid,
+          'email': email,
+        },
+      );
 
-// merge to avoid duplicating users
+// MERGE USERS INSIDE FIRESTORE DATABASE TO AVOID DUPLICATING
   Future<void> mergeUsers(UserCredential userCredential, String email) =>
       users.doc(userCredential.user!.uid).set(
         {

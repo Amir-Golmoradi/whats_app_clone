@@ -15,7 +15,7 @@ class ChatService {
     final String currentUserID = _firebaseAuth.currentUser!.uid;
     final String currentUserEmail = _firebaseAuth.currentUser!.email.toString();
     final Timestamp timestamp = Timestamp.now();
-    // final userDoc = _firestore.collection('users').doc(currentUserID).();
+    // final userDoc = _firestore.collection('users').doc(currentUserID);
 
     //Todo 2: Create a new message
     Message newMessage = Message(

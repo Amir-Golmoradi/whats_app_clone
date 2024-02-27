@@ -9,6 +9,8 @@ import 'package:whats_app_clone/src/auth_features/1_data/data_source/firebase/fi
 import 'package:whats_app_clone/src/auth_features/2_presentation/blocs/login-cubit/login_cubit.dart';
 import 'package:whats_app_clone/src/auth_features/2_presentation/blocs/signup-cubit/sign_up_cubit.dart';
 import 'package:whats_app_clone/src/auth_features/2_presentation/screen/auth_gate.dart';
+import 'package:whats_app_clone/src/chat_room_features/0_data/data_source/chat_service.dart';
+import 'package:whats_app_clone/src/chat_room_features/2_presentation/blocs/cubit/chat_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,9 +31,8 @@ class MainApp extends StatelessWidget {
           MultiBlocProvider(
         providers: [
           BlocProvider(create: (context) => LoginCubit(FirebaseAuthService())),
-          BlocProvider(
-            create: (context) => SignUpCubit(FirebaseAuthService()),
-          )
+          BlocProvider(create: (context) => SignUpCubit(FirebaseAuthService())),
+          BlocProvider(create: (context) => ChatCubit(ChatService()))
         ],
         child: MaterialApp(
           routes: appRoute,

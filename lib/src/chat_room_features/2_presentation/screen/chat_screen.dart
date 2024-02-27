@@ -1,24 +1,29 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:ionicons/ionicons.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:whats_app_clone/core/reusables/my_icon_button.dart';
 import 'package:whats_app_clone/core/reusables/my_text.dart';
 import 'package:whats_app_clone/core/theme/typo.dart';
+import 'package:whats_app_clone/src/chat_room_features/0_data/data_source/chat_service.dart';
+import 'package:whats_app_clone/src/chat_room_features/2_presentation/widget/buttons.dart';
+import 'package:whats_app_clone/src/chat_room_features/2_presentation/widget/room_col.dart';
 
 const String backToMainPage = '/';
 
-class ChatScreen extends StatefulWidget {
-  const ChatScreen(
-      {Key? key, required this.receiveUserName, required this.receiveUserId})
+class ChatRoomScreen extends StatefulWidget {
+  const ChatRoomScreen(
+      {Key? key, required this.receiveUserName, required this.receiveUserID})
       : super(key: key);
   final String receiveUserName;
-  final String receiveUserId;
+  final String receiveUserID;
 
   @override
-  State<ChatScreen> createState() => _ChatScreenState();
+  State<ChatRoomScreen> createState() => _ChatRoomScreenState();
 }
 
-class _ChatScreenState extends State<ChatScreen> {
+class _ChatRoomScreenState extends State<ChatRoomScreen> {
+  final TextEditingController messageController = TextEditingController();
+  final ChatService chatService = ChatService();
+  final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context).colorScheme;
@@ -27,8 +32,8 @@ class _ChatScreenState extends State<ChatScreen> {
         centerTitle: true,
         title: MyText(
           text: widget.receiveUserName,
-          style: typoGraphy.textTheme.headlineMedium!
-              .copyWith(color: theme.primary),
+          style:
+              typoGraphy.textTheme.titleLarge!.copyWith(color: theme.primary),
         ),
         leading: BackButton(
           color: theme.primary,
@@ -39,31 +44,13 @@ class _ChatScreenState extends State<ChatScreen> {
         ),
         actions: chatRoomButton.sublist(1, 3),
       ),
+      body: chatRoomCol(
+        chatService,
+        firebaseAuth,
+        widget.receiveUserID,
+        messageController,
+        context,
+      ),
     );
   }
 }
-
-typedef Button = MyIconButtons;
-final List<Button> chatRoomButton = [
-  Button(
-    icon: Icon(
-      Ionicons.mic,
-      size: 22.sp,
-    ),
-    onPressed: () {
-      //access voice message
-    },
-  ),
-  Button(
-    icon: const Icon(Ionicons.videocam),
-    onPressed: () {},
-  ),
-  Button(
-    icon: const Icon(Ionicons.call_outline),
-    onPressed: () {},
-  ),
-  Button(
-    icon: const Icon(Icons.more_vert_rounded),
-    onPressed: () {},
-  ),
-];

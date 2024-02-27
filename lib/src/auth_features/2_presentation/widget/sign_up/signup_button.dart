@@ -8,10 +8,9 @@ import 'package:whats_app_clone/src/auth_features/2_presentation/blocs/signup-cu
 
 class SignUpButton extends StatelessWidget {
   const SignUpButton(this.emailController, this.passwordController,
-      this.confirmPasswordController, this.firstNameController, this.lastNameController,
+      this.confirmPasswordController,
       {super.key});
-  final TextEditingController firstNameController;
-  final TextEditingController lastNameController;
+
   final TextEditingController emailController;
   final TextEditingController passwordController;
   final TextEditingController confirmPasswordController;
@@ -23,17 +22,20 @@ class SignUpButton extends StatelessWidget {
       onPressed: () {
         if (passwordController.text != confirmPasswordController.text) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text("Passwords do not match"),
+            SnackBar(
+              backgroundColor: Colors.redAccent[400],
+              content: MyText(
+                  text: "Passwords do not match",
+                  style: typoGraphy.textTheme.titleLarge!
+                      .copyWith(color: theme.primary)),
             ),
           );
+        } else if (passwordController.text == confirmPasswordController.text) {
+          addCubitUser.createNewUser(
+            emailController.text.trim(),
+            passwordController.text.trim(),
+          );
         }
-        addCubitUser.createNewUser(
-          firstNameController.text.trim(),
-          lastNameController.text.trim(),
-          emailController.text.trim(),
-          passwordController.text.trim(),
-        );
       },
       style: ElevatedButton.styleFrom(
         shape: RoundedRectangleBorder(

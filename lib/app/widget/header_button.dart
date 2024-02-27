@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whats_app_clone/core/reusables/my_icon_button.dart';
-import 'package:whats_app_clone/src/auth_features/1_data/data_source/firebase/firebase_auth.dart';
+import 'package:whats_app_clone/src/auth_features/1_data/data_source/firebase/firebase.dart';
 
 class HeaderActionButtons extends StatelessWidget {
   const HeaderActionButtons({super.key});
@@ -8,7 +8,7 @@ class HeaderActionButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context).colorScheme;
-    // final FirebaseAuthService authService = FirebaseAuthService();
+    final FirebaseAuthService authService = FirebaseAuthService();
     return Wrap(
       children: [
         MyIconButtons(
@@ -23,7 +23,7 @@ class HeaderActionButtons extends StatelessWidget {
           itemBuilder: (context) => [
             PopupMenuItem(
               onTap: () {
-                FirebaseAuthService().signOut();
+                authService.signOut();
               },
               child: const Text("LogOut"),
             )

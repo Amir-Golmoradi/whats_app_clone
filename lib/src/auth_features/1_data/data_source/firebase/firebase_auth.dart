@@ -5,13 +5,13 @@ class FirebaseAuthService {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
   final FirebaseCloudService _cloudService = FirebaseCloudService();
 
-// sign in with email and password
-  Future<UserCredential> signInWithEmailAndPassword(
+// LOGIN WITH EMAIL AND PASSWORD METHOD
+  Future<UserCredential> loginWithEmailAndPassword(
       String email, String password) async {
     try {
       UserCredential userCredential = await _firebaseAuth
           .signInWithEmailAndPassword(email: email, password: password);
-// merge to avoid duplicating users
+
       _cloudService.mergeUsers(userCredential, email);
 
       return userCredential;
@@ -20,14 +20,13 @@ class FirebaseAuthService {
     }
   }
 
-  // create new user
-  Future<UserCredential> createNewUser(String email, dynamic password) async {
+// CREATE A NEW USER WITH EMAIL AND PASSWORD METHOD
+  Future<UserCredential> createNewUser(String email, String password) async {
     try {
       UserCredential userCredential = await _firebaseAuth
           .createUserWithEmailAndPassword(email: email, password: password);
 
-      // store user data from current account after creating new account
-      _cloudService.addUserToFireStore(userCredential, email);
+      _cloudService.saveUserIntoFireStore(userCredential, email);
 
       return userCredential;
     } on FirebaseAuthException catch (e) {
@@ -35,7 +34,7 @@ class FirebaseAuthService {
     }
   }
 
-//  sign out from account
+// SIGN OUT METHOD
   Future<void> signOut() async {
     await _firebaseAuth.signOut();
   }

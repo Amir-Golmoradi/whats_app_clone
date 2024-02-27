@@ -9,13 +9,9 @@ class LoginCubit extends Cubit<LoginState> {
   final FirebaseAuthService _firebaseAuthService;
   LoginCubit(this._firebaseAuthService) : super(LoginInitial());
 
-  // sign in in current account
-
-  Future<void> signIn(String email, String password) async {
-    await _firebaseAuthService.signInWithEmailAndPassword(
-      email,
-      password,
-    );
+  // SIGN IN USER STATE
+  Future<void> loginNewUser(String email, String password) async {
+    await _firebaseAuthService.loginWithEmailAndPassword(email, password);
   }
 
 // sign out from current account

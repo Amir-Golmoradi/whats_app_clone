@@ -23,7 +23,7 @@ class _LoginPageState extends State<LoginPage> {
 //text controller
     final emailController = TextEditingController();
     final passwordController = TextEditingController();
-    final cubitSignIn = BlocProvider.of<LoginCubit>(context).signIn;
+    final cubitSignIn = BlocProvider.of<LoginCubit>(context).loginNewUser;
 
     final theme = Theme.of(context).colorScheme;
 
@@ -67,12 +67,25 @@ class _LoginPageState extends State<LoginPage> {
                       ForgetPasswordButton(theme: theme),
                       SizedBox(height: 0.2.dp),
 
-                      // login button
+                      // LOGIN BUTTON
                       MyButton(
-                        onPressed: () => cubitSignIn(
-                          emailController.text,
-                          passwordController.text,
-                        ),
+                        onPressed: () {
+                          if (passwordController.text.isNotEmpty) {
+                            cubitSignIn(
+                              emailController.text,
+                              passwordController.text,
+                            );
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                backgroundColor: Colors.redAccent[400],
+                                content: MyText(
+                                    text: "Please enter password!",
+                                    style: typoGraphy.textTheme.titleLarge!.copyWith(color: theme.primary)),
+                              ),
+                            );
+                          }
+                        },
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
