@@ -3,7 +3,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:ionicons/ionicons.dart';
 import 'package:whats_app_clone/src/chat_room_features/2_presentation/screen/chat_screen.dart';
+import 'package:whats_app_clone/src/home_features/2_presentation/blocs/users-bloc/users_bloc.dart';
 
 class UserListItem extends StatefulWidget {
   const UserListItem({
@@ -42,22 +46,42 @@ class _UserListItemState extends State<UserListItem> {
               ),
             ],
           ),
-          child: ListTile(
-            leading: const Icon(Icons.person),
-            title: Text(data['email'].toString()),
-            // subtitle: Text(data['status']), # CREATE A MESSAGE STATUS FOR EACH USER
-            trailing: Text(TimeOfDay.now().format(context)),
-            onTap: () {
-              Navigator.push(
-                context,
-                // ignore: inference_failure_on_instance_creation
-                MaterialPageRoute(
-                  builder: (context) => ChatRoomScreen(
-                      receiveUserName: data['email'].toString(),
-                      receiveUserID: data['uid'].toString(),),
+          child: Slidable(
+            endActionPane: ActionPane(
+              motion: const StretchMotion(),
+              children: [
+                SlidableAction(
+                  onPressed: (context) {
+                    BlocProvider.of<UsersBloc>(context).add(
+                      DeleteUsersEvent(data['uid'].toString()),
+                    );
+                  },
+                  borderRadius: BorderRadius.circular(18),
+                  backgroundColor: Colors.redAccent[400]!,
+                  foregroundColor: Colors.white,
+                  icon: Ionicons.trash,
+                  label: 'Delete',
                 ),
-              );
-            },
+              ],
+            ),
+            child: ListTile(
+              leading: const Icon(Icons.person),
+              title: Text(data['email'].toString()),
+              // subtitle: Text(data['status']), # CREATE A MESSAGE STATUS FOR EACH USER
+              trailing: Text(TimeOfDay.now().format(context)),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  // ignore: inference_failure_on_instance_creation
+                  MaterialPageRoute(
+                    builder: (context) => ChatRoomScreen(
+                      receiveUserName: data['email'].toString(),
+                      receiveUserID: data['uid'].toString(),
+                    ),
+                  ),
+                );
+              },
+            ),
           ),
         ),
       );

@@ -13,7 +13,8 @@ import 'package:whats_app_clone/src/auth_features/2_presentation/screen/auth_gat
 import 'package:whats_app_clone/src/camera_feature/camera_screen.dart';
 import 'package:whats_app_clone/src/chat_room_features/0_data/data_source/chat_service.dart';
 import 'package:whats_app_clone/src/chat_room_features/2_presentation/blocs/cubit/chat_cubit.dart';
-
+import 'package:whats_app_clone/src/home_features/0_data/repository/user_interface.dart';
+import 'package:whats_app_clone/src/home_features/2_presentation/blocs/users-bloc/users_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -37,6 +38,7 @@ class MainApp extends StatelessWidget {
           BlocProvider(create: (context) => LoginCubit(FirebaseAuthService())),
           BlocProvider(create: (context) => SignUpCubit(FirebaseAuthService())),
           BlocProvider(create: (context) => ChatCubit(ChatService())),
+          BlocProvider(create: (context) => UsersBloc(UserRepoImpl())),
         ],
         child: MaterialApp(
           routes: appRoute,

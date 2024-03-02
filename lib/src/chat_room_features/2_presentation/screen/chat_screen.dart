@@ -47,10 +47,12 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
         actions: chatRoomButton.sublist(1, 3),
       ),
       body: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
-              'assets/images/backgroundImage.png',
+              theme.brightness == Brightness.dark
+                  ? 'assets/images/darkBG.png'
+                  : 'assets/images/lightBG.png',
             ),
             fit: BoxFit.cover,
             filterQuality: FilterQuality.high,

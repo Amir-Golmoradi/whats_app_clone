@@ -2,18 +2,24 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CLIENT_ID</key>
+	<string>516430255136-71kuchkomr5vn1f596fbcsi9oudclgmv.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.516430255136-71kuchkomr5vn1f596fbcsi9oudclgmv</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>516430255136-j7v310lcajdvl0anbob2io4cti5p27e1.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyA5wKsXFgLt2_TgJoNXf1dDfkpTaVHDrLc</string>
+	<string>AIzaSyCi_J3_NHkYoxkdcQOHIH5io-Wy_R834-w</string>
 	<key>GCM_SENDER_ID</key>
-	<string>717424928103</string>
+	<string>516430255136</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.example.whatsAppClone</string>
 	<key>PROJECT_ID</key>
-	<string>whats-app-clone-c86a5</string>
+	<string>whatsapp-clone-7ea68</string>
 	<key>STORAGE_BUCKET</key>
-	<string>whats-app-clone-c86a5.appspot.com</string>
+	<string>whatsapp-clone-7ea68.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:717424928103:ios:1e79f43aef52d3ec37fbc2</string>
+	<string>1:516430255136:ios:396ecb70da681c7dd91845</string>
 </dict>
 </plist>

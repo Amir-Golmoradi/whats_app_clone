@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ionicons/ionicons.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:whats_app_clone/core/reusables/my_button.dart';
+import 'package:whats_app_clone/core/reusables/my_icon_button.dart';
 import 'package:whats_app_clone/core/reusables/my_text.dart';
 import 'package:whats_app_clone/core/reusables/my_text_field.dart';
 import 'package:whats_app_clone/core/theme/typo.dart';
+import 'package:whats_app_clone/src/auth_features/1_data/data_source/firebase/google_sign_in.dart';
 import 'package:whats_app_clone/src/auth_features/2_presentation/blocs/login-cubit/login_cubit.dart';
 import 'package:whats_app_clone/src/auth_features/2_presentation/widget/forget_password.dart';
 
@@ -20,7 +23,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
-//text controller
+    //TEXT CONTROLLER
     final emailController = TextEditingController();
     final passwordController = TextEditingController();
     final cubitSignIn = BlocProvider.of<LoginCubit>(context).loginNewUser;
@@ -46,7 +49,7 @@ class _LoginPageState extends State<LoginPage> {
                   Column(
                     children: [
                       SizedBox(height: 0.5.dp),
-                      // email textfield
+                      // EMAIL TEXTFIELD
                       MyTextField(
                         controller: emailController,
                         hintText: 'Email',
@@ -56,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
 
                       SizedBox(height: 0.22.dp),
 
-                      // password textfield
+                      // PASSWORD TEXTFIELD
                       MyTextField(
                         controller: passwordController,
                         hintText: 'Password',
@@ -89,6 +92,7 @@ class _LoginPageState extends State<LoginPage> {
                             );
                           }
                         },
+                        //LOGIN BUTTON STYLE
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
@@ -110,7 +114,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
 
-                      SizedBox(height: 0.3.dp),
+                      SizedBox(height: 0.22.dp),
 
                       // not a member? register now
                       Row(
@@ -128,6 +132,44 @@ class _LoginPageState extends State<LoginPage> {
                               text: 'Register now',
                               style: typoGraphy.textTheme.titleMedium!
                                   .apply(color: theme.primary),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 0.3.dp),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            padding: EdgeInsets.all(10.sp),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12.sp),
+                              color: theme.primary,
+                            ),
+                            child: MyIconButtons(
+                              icon: Image.asset(
+                                'assets/images/google-logo.png',
+                                width: Adaptive.w(12.sp),
+                              ),
+                              onPressed: () {
+                                GoogleSignIn().signInWithGoogle();
+                              },
+                            ),
+                          ),
+                          SizedBox(width: 0.2.dp),
+                          Container(
+                            padding: EdgeInsets.all(10.sp),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12.sp),
+                              color: theme.primary,
+                            ),
+                            child: MyIconButtons(
+                              icon: const Icon(
+                                Ionicons.phone_portrait,
+                                color: Colors.black,
+                                size: 32,
+                              ),
+                              onPressed: () {},
                             ),
                           ),
                         ],
