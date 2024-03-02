@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:whats_app_clone/app/app_route.dart';
-import 'package:whats_app_clone/src/call_features/2_presentation/screen/call_screen.dart';
+import 'package:whats_app_clone/src/audio_call_features/2_presentation/screen/audio_call_screen.dart';
+import 'package:whats_app_clone/src/camera_feature/camera_screen.dart';
 import 'package:whats_app_clone/src/community_features/2_presentation/screen/community_screen.dart';
+import 'package:whats_app_clone/src/contacts_features/presentation/screen/contact_screen.dart';
 import 'package:whats_app_clone/src/home_features/2_presentation/screen/home_screen.dart';
 import 'package:whats_app_clone/src/status_features/2_presentation/screen/status_screen.dart';
 
@@ -11,7 +13,7 @@ List<Widget> tabScreen = [
   const CommunityScreen(),
   const HomeScreen(),
   const StatusScreen(),
-  const CallsScreen()
+  const AudioCallScreen(),
 ];
 
 const Widget initRoute = TabRoute();
@@ -21,7 +23,7 @@ final AppRoute appRoute = {
   '/community': (context) => const CommunityScreen(),
   '/home': (context) => const HomeScreen(),
   '/status': (context) => const StatusScreen(),
-  '/calls': (context) => const CallsScreen(),
-  // '/sign-in': (context) => LoginPage(onTap: () {}),
-  // '/sign-up': (context) => SignUpPage(onTap: () {}),
+  '/calls': (context) => const AudioCallScreen(),
+  '/contact': (context) => const ContactScreen(),
+  '/camera': (context) => const TakePictureScreen(),
 };

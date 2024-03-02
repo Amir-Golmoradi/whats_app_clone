@@ -1,12 +1,12 @@
+// ignore_for_file: public_member_api_docs
+
 import 'package:flutter/material.dart';
 
 class MyIconButtons extends StatelessWidget {
   const MyIconButtons({
-    Key? key,
-    required this.icon,
-    required this.onPressed,
+    required this.icon, required this.onPressed, super.key,
     this.style,
-  }) : super(key: key);
+  });
 
   final Widget icon;
   final void Function() onPressed;

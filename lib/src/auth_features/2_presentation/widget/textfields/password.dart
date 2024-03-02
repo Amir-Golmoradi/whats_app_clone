@@ -3,7 +3,7 @@ import 'package:ionicons/ionicons.dart';
 import 'package:whats_app_clone/core/reusables/my_text_field.dart';
 
 class PasswordTextInput extends StatelessWidget {
-  const PasswordTextInput(this.passwordController, {Key? key}) : super(key: key);
+  const PasswordTextInput(this.passwordController, {super.key});
 
   final TextEditingController passwordController;
   @override

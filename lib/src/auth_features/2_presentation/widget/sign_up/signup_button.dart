@@ -9,7 +9,7 @@ import 'package:whats_app_clone/src/auth_features/2_presentation/blocs/signup-cu
 class SignUpButton extends StatelessWidget {
   const SignUpButton(this.emailController, this.passwordController,
       this.confirmPasswordController,
-      {super.key});
+      {super.key,});
 
   final TextEditingController emailController;
   final TextEditingController passwordController;
@@ -25,9 +25,9 @@ class SignUpButton extends StatelessWidget {
             SnackBar(
               backgroundColor: Colors.redAccent[400],
               content: MyText(
-                  text: "Passwords do not match",
+                  text: 'Passwords do not match',
                   style: typoGraphy.textTheme.titleLarge!
-                      .copyWith(color: theme.primary)),
+                      .copyWith(color: theme.primary),),
             ),
           );
         } else if (passwordController.text == confirmPasswordController.text) {
@@ -48,7 +48,7 @@ class SignUpButton extends StatelessWidget {
         ),
       ),
       child: MyText(
-        text: "Sign Up",
+        text: 'Sign Up',
         style: typoGraphy.textTheme.bodyLarge!.apply(
           color: theme.brightness == Brightness.dark
               ? theme.primary

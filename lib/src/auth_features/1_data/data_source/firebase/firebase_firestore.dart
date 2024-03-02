@@ -6,7 +6,7 @@ class FirebaseCloudService {
       FirebaseFirestore.instance.collection('users');
 // STORE USERS INSIDE FIRESTORE DATABASE
   Future<void> saveUserIntoFireStore(
-          UserCredential userCredential, String email) =>
+          UserCredential userCredential, String email,) =>
       users.doc(userCredential.user!.uid).set(
         {
           'uid': userCredential.user!.uid,

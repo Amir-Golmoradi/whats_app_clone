@@ -4,7 +4,7 @@ import 'package:whats_app_clone/app/app_route.dart';
 import 'package:whats_app_clone/src/auth_features/2_presentation/screen/login_signup_connector.dart';
 
 class AuthGate extends StatelessWidget {
-  const AuthGate({Key? key}) : super(key: key);
+  const AuthGate({super.key});
 
   @override
   Widget build(BuildContext context) {

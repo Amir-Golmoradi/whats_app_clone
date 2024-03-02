@@ -9,9 +9,11 @@ import 'package:whats_app_clone/src/chat_room_features/2_presentation/widget/roo
 const String backToMainPage = '/';
 
 class ChatRoomScreen extends StatefulWidget {
-  const ChatRoomScreen(
-      {Key? key, required this.receiveUserName, required this.receiveUserID})
-      : super(key: key);
+  const ChatRoomScreen({
+    required this.receiveUserName,
+    required this.receiveUserID,
+    super.key,
+  });
   final String receiveUserName;
   final String receiveUserID;
 
@@ -44,12 +46,23 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
         ),
         actions: chatRoomButton.sublist(1, 3),
       ),
-      body: chatRoomCol(
-        chatService,
-        firebaseAuth,
-        widget.receiveUserID,
-        messageController,
-        context,
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(
+              'assets/images/backgroundImage.png',
+            ),
+            fit: BoxFit.cover,
+            filterQuality: FilterQuality.high,
+          ),
+        ),
+        child: chatRoomCol(
+          chatService,
+          firebaseAuth,
+          widget.receiveUserID,
+          messageController,
+          context,
+        ),
       ),
     );
   }

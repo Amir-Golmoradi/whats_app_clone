@@ -10,7 +10,7 @@ import 'package:whats_app_clone/src/auth_features/2_presentation/blocs/login-cub
 import 'package:whats_app_clone/src/auth_features/2_presentation/widget/forget_password.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key, required this.onTap}) : super(key: key);
+  const LoginPage({required this.onTap, super.key});
   final void Function()? onTap;
 
   @override
@@ -31,13 +31,12 @@ class _LoginPageState extends State<LoginPage> {
       body: SafeArea(
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25.0),
+            padding: const EdgeInsets.symmetric(horizontal: 25),
             child: SingleChildScrollView(
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   MyText(
-                    text: "HELLO AGAIN",
+                    text: 'HELLO AGAIN',
                     style: GoogleFonts.robotoSlab(
                       fontSize: 25.sp,
                       fontWeight: FontWeight.w600,
@@ -80,8 +79,12 @@ class _LoginPageState extends State<LoginPage> {
                               SnackBar(
                                 backgroundColor: Colors.redAccent[400],
                                 content: MyText(
-                                    text: "Please enter password!",
-                                    style: typoGraphy.textTheme.titleLarge!.copyWith(color: theme.primary)),
+                                  text: 'Please enter password!',
+                                  style:
+                                      typoGraphy.textTheme.titleLarge!.copyWith(
+                                    color: theme.primary,
+                                  ),
+                                ),
                               ),
                             );
                           }
@@ -98,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                         child: MyText(
-                          text: "Login",
+                          text: 'Login',
                           style: typoGraphy.textTheme.bodyLarge!.apply(
                             color: theme.brightness == Brightness.dark
                                 ? theme.primary
@@ -114,7 +117,7 @@ class _LoginPageState extends State<LoginPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           MyText(
-                            text: "Not a member?",
+                            text: 'Not a member?',
                             style: typoGraphy.textTheme.titleMedium!
                                 .apply(color: theme.primary),
                           ),
@@ -122,13 +125,13 @@ class _LoginPageState extends State<LoginPage> {
                           GestureDetector(
                             onTap: widget.onTap,
                             child: MyText(
-                              text: "Register now",
+                              text: 'Register now',
                               style: typoGraphy.textTheme.titleMedium!
                                   .apply(color: theme.primary),
                             ),
                           ),
                         ],
-                      )
+                      ),
                     ],
                   ),
                 ],

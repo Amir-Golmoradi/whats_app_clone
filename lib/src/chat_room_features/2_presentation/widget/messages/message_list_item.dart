@@ -6,14 +6,15 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:whats_app_clone/core/reusables/my_text.dart';
 import 'package:whats_app_clone/src/chat_room_features/2_presentation/widget/chat_bubble.dart';
 
+// ignore: public_member_api_docs
 Widget messageListItem(DocumentSnapshot document, BuildContext context) {
-  final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  final firebaseAuth = FirebaseAuth.instance;
 
-  Map<String, dynamic> data = document.data() as Map<String, dynamic>;
+  final data = document.data()! as Map<String, dynamic>;
 
 // message must be on the right ONLY if sender is current user;
 
-  var messageAlignment = (data['senderId'] == firebaseAuth.currentUser!.uid)
+  final messageAlignment = (data['senderId'] == firebaseAuth.currentUser!.uid)
       ? Alignment.centerRight
       : Alignment.centerLeft;
   return Container(
@@ -28,7 +29,7 @@ Widget messageListItem(DocumentSnapshot document, BuildContext context) {
           : MainAxisAlignment.start,
       children: [
         MyText(
-          text: data['senderEmail'],
+          text: data['senderEmail'].toString(),
           style: GoogleFonts.robotoSlab(
             color: Theme.of(context).colorScheme.primary,
             fontWeight: FontWeight.w700,
@@ -36,7 +37,7 @@ Widget messageListItem(DocumentSnapshot document, BuildContext context) {
           ),
         ),
         SizedBox(height: 0.14.dp),
-        chatBubble(document, context, data['message']),
+        chatBubble(document, context, data['message'].toString()),
       ],
     ),
   );

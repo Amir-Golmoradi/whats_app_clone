@@ -10,14 +10,12 @@ import 'package:whats_app_clone/src/auth_features/2_presentation/widget/textfiel
 
 class SignUpCol extends StatelessWidget {
   const SignUpCol({
-    super.key,
-
     required this.emailController,
     required this.passwordController,
     required this.confirmPasswordController,
     required this.widget,
+    super.key,
   });
-
 
   final TextEditingController emailController;
   final TextEditingController passwordController;
@@ -28,7 +26,6 @@ class SignUpCol extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-
         EmailTextInput(emailController),
         SizedBox(height: 0.16.dp),
         PasswordTextInput(passwordController),
@@ -38,11 +35,10 @@ class SignUpCol extends StatelessWidget {
         SignUpButton(
           emailController,
           passwordController,
-          confirmPasswordController
-
+          confirmPasswordController,
         ),
         SizedBox(height: 0.2.dp),
-        FooterAction(widget: widget)
+        FooterAction(widget: widget),
       ],
     );
   }

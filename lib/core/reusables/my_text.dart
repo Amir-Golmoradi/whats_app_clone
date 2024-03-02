@@ -1,7 +1,9 @@
+// ignore_for_file: public_member_api_docs
+
 import 'package:flutter/material.dart';
 
 class MyText extends StatelessWidget {
-  const MyText({Key? key, required this.text, this.style}) : super(key: key);
+  const MyText({required this.text, super.key, this.style});
   final String text;
   final TextStyle? style;
   @override

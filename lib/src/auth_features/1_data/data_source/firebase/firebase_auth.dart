@@ -7,12 +7,16 @@ class FirebaseAuthService {
 
 // LOGIN WITH EMAIL AND PASSWORD METHOD
   Future<UserCredential> loginWithEmailAndPassword(
-      String email, String password) async {
+    String email,
+    String password,
+  ) async {
     try {
-      UserCredential userCredential = await _firebaseAuth
-          .signInWithEmailAndPassword(email: email, password: password);
+      final userCredential = await _firebaseAuth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
 
-      _cloudService.mergeUsers(userCredential, email);
+      await _cloudService.mergeUsers(userCredential, email);
 
       return userCredential;
     } on FirebaseAuthException catch (e) {
@@ -23,10 +27,12 @@ class FirebaseAuthService {
 // CREATE A NEW USER WITH EMAIL AND PASSWORD METHOD
   Future<UserCredential> createNewUser(String email, String password) async {
     try {
-      UserCredential userCredential = await _firebaseAuth
-          .createUserWithEmailAndPassword(email: email, password: password);
+      final userCredential = await _firebaseAuth.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
 
-      _cloudService.saveUserIntoFireStore(userCredential, email);
+      await _cloudService.saveUserIntoFireStore(userCredential, email);
 
       return userCredential;
     } on FirebaseAuthException catch (e) {

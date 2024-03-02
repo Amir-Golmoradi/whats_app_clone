@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 
 class AddChatButton extends StatefulWidget {
-  const AddChatButton({super.key, required this.theme});
+  const AddChatButton({required this.theme, super.key});
 
   final ColorScheme theme;
 

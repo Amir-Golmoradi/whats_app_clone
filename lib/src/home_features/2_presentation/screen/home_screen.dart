@@ -4,7 +4,7 @@ import 'package:whats_app_clone/src/home_features/2_presentation/widget/user_lis
 
 // Chat Tab Screen
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

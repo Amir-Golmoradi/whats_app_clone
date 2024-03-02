@@ -4,7 +4,7 @@ import 'package:whats_app_clone/src/auth_features/2_presentation/widget/sign_up/
 import 'package:whats_app_clone/src/auth_features/2_presentation/widget/sign_up/signup_header.dart';
 
 class SignUpPage extends StatefulWidget {
-  const SignUpPage({Key? key, required this.onTap}) : super(key: key);
+  const SignUpPage({required this.onTap, super.key});
   final void Function()? onTap;
   @override
   State<SignUpPage> createState() => _SignUpPageState();
@@ -31,7 +31,7 @@ class _SignUpPageState extends State<SignUpPage> {
       body: SafeArea(
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25.0),
+            padding: const EdgeInsets.symmetric(horizontal: 25),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

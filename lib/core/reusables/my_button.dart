@@ -1,12 +1,12 @@
+// ignore_for_file: public_member_api_docs
+
 import 'package:flutter/material.dart';
 
 class MyButton extends StatelessWidget {
   const MyButton({
-    Key? key,
+    required this.child, required this.style, super.key,
     this.onPressed,
-    required this.child,
-    required this.style,
-  }) : super(key: key);
+  });
 
   final VoidCallback? onPressed;
   final Widget child;

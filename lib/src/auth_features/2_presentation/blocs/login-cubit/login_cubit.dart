@@ -6,8 +6,8 @@ import 'package:whats_app_clone/src/auth_features/1_data/data_source/firebase/fi
 part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
-  final FirebaseAuthService _firebaseAuthService;
   LoginCubit(this._firebaseAuthService) : super(LoginInitial());
+  final FirebaseAuthService _firebaseAuthService;
 
   // SIGN IN USER STATE
   Future<void> loginNewUser(String email, String password) async {
@@ -16,6 +16,6 @@ class LoginCubit extends Cubit<LoginState> {
 
 // sign out from current account
   Future<void> signOut() async {
-    return await _firebaseAuthService.signOut();
+    return _firebaseAuthService.signOut();
   }
 }

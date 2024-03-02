@@ -5,13 +5,17 @@ import 'package:whats_app_clone/src/chat_room_features/0_data/data_source/chat_s
 part 'chat_state.dart';
 
 class ChatCubit extends Cubit<ChatState> {
-  final ChatService _chatService;
-
   ChatCubit(this._chatService) : super(ChatInitial());
-  void sendMessage(
-      String receiveUserID, TextEditingController messageControllerText) async {
+  final ChatService _chatService;
+  Future<void> sendMessage(
+    String receiveUserID,
+    TextEditingController messageControllerText,
+  ) async {
     if (messageControllerText.text.isNotEmpty) {
-      await _chatService.sendMessage(receiveUserID.trim(), messageControllerText.text);
+      await _chatService.sendMessage(
+        receiveUserID.trim(),
+        messageControllerText.text,
+      );
       messageControllerText.clear();
     }
   }

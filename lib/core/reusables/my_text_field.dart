@@ -1,14 +1,12 @@
+// ignore_for_file: public_member_api_docs, lines_longer_than_80_chars
+
 import 'package:flutter/material.dart';
 
 class MyTextField extends StatelessWidget {
   const MyTextField({
-    Key? key,
-    required this.controller,
-    required this.hintText,
-    required this.obsecureText,
-    required this.icon,
+    required this.controller, required this.hintText, required this.obsecureText, required this.icon, super.key,
     this.suffixIcon = const Icon(null),
-  }) : super(key: key);
+  });
 
   final TextEditingController controller;
   final String hintText;

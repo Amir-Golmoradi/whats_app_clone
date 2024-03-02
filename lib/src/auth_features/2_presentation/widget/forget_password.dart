@@ -3,7 +3,7 @@ import 'package:whats_app_clone/core/reusables/my_text.dart';
 import 'package:whats_app_clone/core/theme/typo.dart';
 
 class ForgetPasswordButton extends StatelessWidget {
-  const ForgetPasswordButton({super.key, required this.theme});
+  const ForgetPasswordButton({required this.theme, super.key});
 
   final ColorScheme theme;
 
@@ -14,7 +14,7 @@ class ForgetPasswordButton extends StatelessWidget {
       child: TextButton(
         onPressed: () {},
         child: MyText(
-          text: "Forget Password?",
+          text: 'Forget Password?',
           style: typoGraphy.textTheme.titleMedium!.apply(color: theme.primary),
         ),
       ),

@@ -3,7 +3,7 @@ import 'package:whats_app_clone/src/auth_features/2_presentation/screen/login_sc
 import 'package:whats_app_clone/src/auth_features/2_presentation/screen/sign_up_screen.dart';
 
 class LoginSignUpConnector extends StatefulWidget {
-  const LoginSignUpConnector({Key? key}) : super(key: key);
+  const LoginSignUpConnector({super.key});
 
   @override
   State<LoginSignUpConnector> createState() => _LoginSignupState();
@@ -21,9 +21,9 @@ class _LoginSignupState extends State<LoginSignUpConnector> {
   @override
   Widget build(BuildContext context) {
     if (showLoginPage) {
-      return LoginPage(onTap: () => togglePages());
+      return LoginPage(onTap: togglePages);
     } else {
-      return SignUpPage(onTap: () => togglePages());
+      return SignUpPage(onTap: togglePages);
     }
   }
 }

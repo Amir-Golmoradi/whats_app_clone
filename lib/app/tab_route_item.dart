@@ -1,3 +1,5 @@
+// ignore_for_file: public_member_api_docs
+
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:whats_app_clone/core/reusables/my_text.dart';
@@ -10,18 +12,18 @@ TabBar tabRouteItem(ColorScheme theme, TextTheme textTheme) {
       ),
       Tab(
         child: MyText(
-            text: "Chats",
-            style: textTheme.titleLarge!.copyWith(color: theme.primary)),
+            text: 'Chats',
+            style: textTheme.titleMedium!.copyWith(color: theme.primary),),
       ),
       Tab(
         child: MyText(
-            text: "Updates",
-            style: textTheme.titleLarge!.copyWith(color: theme.primary)),
+            text: 'Status',
+            style: textTheme.titleMedium!.copyWith(color: theme.primary),),
       ),
       Tab(
         child: MyText(
-            text: "Calls",
-            style: textTheme.titleLarge!.copyWith(color: theme.primary)),
+            text: 'Calls',
+            style: textTheme.titleMedium!.copyWith(color: theme.primary),),
       ),
     ],
   );

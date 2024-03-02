@@ -4,7 +4,7 @@ import 'package:whats_app_clone/core/theme/typo.dart';
 import 'package:whats_app_clone/src/auth_features/2_presentation/screen/sign_up_screen.dart';
 
 class FooterAction extends StatelessWidget {
-  const FooterAction({super.key, required this.widget});
+  const FooterAction({required this.widget, super.key});
 
   final SignUpPage widget;
 
@@ -16,14 +16,14 @@ class FooterAction extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         MyText(
-          text: "Already a member? ",
+          text: 'Already a member? ',
           style: typoGraphy.textTheme.titleMedium!.apply(color: theme.primary),
         ),
         const SizedBox(width: 2),
         GestureDetector(
           onTap: widget.onTap,
           child: MyText(
-            text: "Login now",
+            text: 'Login now',
             style:
                 typoGraphy.textTheme.titleMedium!.apply(color: theme.primary),
           ),

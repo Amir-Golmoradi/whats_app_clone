@@ -8,7 +8,7 @@ import 'package:whats_app_clone/src/chat_room_features/0_data/data_source/chat_s
 import 'package:whats_app_clone/src/chat_room_features/2_presentation/blocs/cubit/chat_cubit.dart';
 import 'package:whats_app_clone/src/chat_room_features/2_presentation/widget/messages/message_list.dart';
 
-Column chatRoomCol(
+Widget chatRoomCol(
   ChatService chatService,
   FirebaseAuth firebaseAuth,
   String receiveUserID,
@@ -25,22 +25,47 @@ Column chatRoomCol(
   );
 }
 
-Widget _buildMessageInput(String receiveUserID,
-    TextEditingController messageController, BuildContext context) {
+Widget _buildMessageInput(
+  String receiveUserID,
+  TextEditingController messageController,
+  BuildContext context,
+) {
   final sendMessage = BlocProvider.of<ChatCubit>(context).sendMessage;
   return Row(
     children: [
       Expanded(
-        child: MyTextField(
-          controller: messageController,
-          hintText: 'Enter Message',
-          obsecureText: false,
-          icon: const Icon(null),
+        child: Padding(
+          padding: const EdgeInsets.all(6),
+          child: MyTextField(
+            controller: messageController,
+            hintText: 'Enter Message',
+            obsecureText: false,
+            icon: const Icon(null),
+          ),
         ),
       ),
-      MyIconButtons(
-          icon: const Icon(Ionicons.arrow_up),
-          onPressed: () => sendMessage(receiveUserID, messageController)),
+      if (messageController.text.isEmpty)
+        CircleAvatar(
+          backgroundColor: Colors.teal,
+          child: MyIconButtons(
+            icon: Icon(
+              Ionicons.mic,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+            onPressed: () {},
+          ),
+        )
+      else
+        CircleAvatar(
+          backgroundColor: Colors.teal,
+          child: MyIconButtons(
+            icon: Icon(
+              Ionicons.send,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+            onPressed: () => sendMessage(receiveUserID, messageController),
+          ),
+        ),
     ],
   );
 }
