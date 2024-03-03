@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/get_utils.dart';
+import 'package:whats_app_clone/core/I18n/messages.dart';
 import 'package:whats_app_clone/core/reusables/my_text_field.dart';
 
 class ConfirmPasswordInput extends StatelessWidget {
@@ -9,7 +11,7 @@ class ConfirmPasswordInput extends StatelessWidget {
   Widget build(BuildContext context) {
     return MyTextField(
       controller: confirmPasswordController,
-      hintText: 'Confirm Password',
+      hintText: AppMessage.confirmPassword.tr,
       obsecureText: true,
       icon: const Icon(Icons.lock),
     );

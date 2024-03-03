@@ -1,7 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get_utils/get_utils.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:whats_app_clone/core/I18n/messages.dart';
 import 'package:whats_app_clone/core/reusables/my_icon_button.dart';
 import 'package:whats_app_clone/core/reusables/my_text_field.dart';
 import 'package:whats_app_clone/src/chat_room_features/0_data/data_source/chat_service.dart';
@@ -38,7 +40,7 @@ Widget _buildMessageInput(
           padding: const EdgeInsets.all(6),
           child: MyTextField(
             controller: messageController,
-            hintText: 'Enter Message',
+            hintText: AppMessage.enterMessage.tr,
             obsecureText: false,
             icon: const Icon(null),
           ),

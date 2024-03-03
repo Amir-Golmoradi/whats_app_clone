@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/get_utils.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:whats_app_clone/core/I18n/messages.dart';
 import 'package:whats_app_clone/core/reusables/my_text.dart';
 import 'package:whats_app_clone/core/theme/typo.dart';
 import 'package:whats_app_clone/src/community_features/1_domain/model/community.dart';
@@ -18,7 +20,7 @@ class CommunityScreen extends StatelessWidget {
             child: ListTile(
               onTap: () => Navigator.pushReplacementNamed(context, '/contact'),
               title: MyText(
-                text: 'New community',
+                text: AppMessage.newCommunity.tr,
                 style: typoGraphy.textTheme.bodyLarge!
                     .copyWith(color: theme.primary),
               ),
@@ -76,12 +78,12 @@ class CommunityScreen extends StatelessWidget {
                         child: Image.network(communities[index].image),
                       ),
                       title: MyText(
-                        text: communities[index].name,
+                        text: AppMessage.community.tr,
                         style: typoGraphy.textTheme.bodyLarge!
                             .copyWith(color: theme.primary),
                       ),
                       subtitle: MyText(
-                        text: communities[index].subName,
+                        text: AppMessage.community.tr,
                         style: typoGraphy.textTheme.titleSmall!
                             .copyWith(color: theme.primary),
                       ),

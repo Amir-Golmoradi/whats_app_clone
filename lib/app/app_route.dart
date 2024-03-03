@@ -1,15 +1,16 @@
 // ignore_for_file: public_member_api_docs
 
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/get_utils.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:whats_app_clone/app/tab_route_item.dart';
 import 'package:whats_app_clone/app/widget/header_button.dart';
+import 'package:whats_app_clone/core/I18n/messages.dart';
 import 'package:whats_app_clone/core/reusables/my_text.dart';
 import 'package:whats_app_clone/core/theme/typo.dart';
 import 'package:whats_app_clone/core/utils/tab_screen.dart';
 
 const int tabLength = 4;
-const String title = 'WhatsApp';
 
 class TabRoute extends StatelessWidget {
   const TabRoute({super.key});
@@ -30,7 +31,7 @@ class TabRoute extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 MyText(
-                  text: title,
+                  text: AppMessage.whatsApp.tr,
                   style:
                       textTheme.headlineMedium!.copyWith(color: theme.primary),
                 ),

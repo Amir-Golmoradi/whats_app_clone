@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/get_utils.dart';
+import 'package:whats_app_clone/core/I18n/messages.dart';
 import 'package:whats_app_clone/core/reusables/my_text.dart';
 import 'package:whats_app_clone/core/theme/typo.dart';
 
@@ -14,7 +16,7 @@ class ForgetPasswordButton extends StatelessWidget {
       child: TextButton(
         onPressed: () => Navigator.pushNamed(context, '/forgot-pw'),
         child: MyText(
-          text: 'Forget Password?',
+          text: AppMessage.forgotPassword.tr,
           style: typoGraphy.textTheme.titleMedium!.apply(color: theme.primary),
         ),
       ),

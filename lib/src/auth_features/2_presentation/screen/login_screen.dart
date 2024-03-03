@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get_utils/get_utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:whats_app_clone/core/I18n/messages.dart';
+import 'package:whats_app_clone/core/gen/assets.gen.dart';
 import 'package:whats_app_clone/core/reusables/my_button.dart';
 import 'package:whats_app_clone/core/reusables/my_icon_button.dart';
 import 'package:whats_app_clone/core/reusables/my_text.dart';
@@ -39,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                 children: [
                   MyText(
-                    text: 'HELLO AGAIN',
+                    text: AppMessage.helloAgain.tr,
                     style: GoogleFonts.robotoSlab(
                       fontSize: 25.sp,
                       fontWeight: FontWeight.w600,
@@ -52,7 +55,7 @@ class _LoginPageState extends State<LoginPage> {
                       // EMAIL TEXTFIELD
                       MyTextField(
                         controller: emailController,
-                        hintText: 'Email',
+                        hintText: AppMessage.email.tr,
                         obsecureText: false,
                         icon: const Icon(Icons.person),
                       ),
@@ -62,7 +65,7 @@ class _LoginPageState extends State<LoginPage> {
                       // PASSWORD TEXTFIELD
                       MyTextField(
                         controller: passwordController,
-                        hintText: 'Password',
+                        hintText: AppMessage.password.tr,
                         obsecureText: true,
                         icon: const Icon(Icons.lock),
                       ),
@@ -82,7 +85,7 @@ class _LoginPageState extends State<LoginPage> {
                               SnackBar(
                                 backgroundColor: Colors.redAccent[400],
                                 content: MyText(
-                                  text: 'Please enter password!',
+                                  text: AppMessage.enterYourPw.tr,
                                   style:
                                       typoGraphy.textTheme.titleLarge!.copyWith(
                                     color: theme.primary,
@@ -105,7 +108,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                         child: MyText(
-                          text: 'Login',
+                          text: AppMessage.login.tr,
                           style: typoGraphy.textTheme.bodyLarge!.apply(
                             color: theme.brightness == Brightness.dark
                                 ? theme.primary
@@ -121,7 +124,7 @@ class _LoginPageState extends State<LoginPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           MyText(
-                            text: 'Not a member?',
+                            text: AppMessage.notAMember.tr,
                             style: typoGraphy.textTheme.titleMedium!
                                 .apply(color: theme.primary),
                           ),
@@ -129,7 +132,7 @@ class _LoginPageState extends State<LoginPage> {
                           GestureDetector(
                             onTap: widget.onTap,
                             child: MyText(
-                              text: 'Register now',
+                              text: AppMessage.registerNow.tr,
                               style: typoGraphy.textTheme.titleMedium!
                                   .apply(color: theme.primary),
                             ),
@@ -147,10 +150,8 @@ class _LoginPageState extends State<LoginPage> {
                               color: theme.primary,
                             ),
                             child: MyIconButtons(
-                              icon: Image.asset(
-                                'assets/images/google-logo.png',
-                                width: Adaptive.w(12.sp),
-                              ),
+                              icon: Assets.images.googleLogo
+                                  .image(width: Adaptive.w(12.sp)),
                               onPressed: () {
                                 GoogleSignIn().signInWithGoogle();
                               },

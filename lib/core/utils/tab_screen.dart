@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:whats_app_clone/app/app_route.dart';
 import 'package:whats_app_clone/src/audio_call_features/2_presentation/screen/audio_call_screen.dart';
+import 'package:whats_app_clone/src/auth_features/2_presentation/screen/auth_gate.dart';
 import 'package:whats_app_clone/src/auth_features/2_presentation/screen/forget_password.dart';
 import 'package:whats_app_clone/src/camera_feature/camera_screen.dart';
 import 'package:whats_app_clone/src/community_features/2_presentation/screen/community_screen.dart';
@@ -28,4 +29,5 @@ final AppRoute appRoute = {
   '/camera': (context) => const TakePictureScreen(),
   '/forgot-pw': (context) => const ForgotPassword(),
   '/community': (context) => const CommunityScreen(),
+  '/auth-gate': (context) => const AuthGate(),
 };

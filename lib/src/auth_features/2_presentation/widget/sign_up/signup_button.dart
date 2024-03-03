@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get_utils/get_utils.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:whats_app_clone/core/I18n/messages.dart';
 import 'package:whats_app_clone/core/reusables/my_button.dart';
 import 'package:whats_app_clone/core/reusables/my_text.dart';
 import 'package:whats_app_clone/core/theme/typo.dart';
@@ -25,7 +27,7 @@ class SignUpButton extends StatelessWidget {
             SnackBar(
               backgroundColor: Colors.redAccent[400],
               content: MyText(
-                  text: 'Passwords do not match',
+                  text: AppMessage.passwordAlert.tr,
                   style: typoGraphy.textTheme.titleLarge!
                       .copyWith(color: theme.primary),),
             ),
@@ -48,7 +50,7 @@ class SignUpButton extends StatelessWidget {
         ),
       ),
       child: MyText(
-        text: 'Sign Up',
+        text: AppMessage.signUp.tr,
         style: typoGraphy.textTheme.bodyLarge!.apply(
           color: theme.brightness == Brightness.dark
               ? theme.primary

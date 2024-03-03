@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/get_utils.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:whats_app_clone/core/I18n/messages.dart';
 import 'package:whats_app_clone/core/reusables/my_text_field.dart';
 
 class PasswordTextInput extends StatelessWidget {
@@ -10,7 +12,7 @@ class PasswordTextInput extends StatelessWidget {
   Widget build(BuildContext context) {
     return MyTextField(
       controller: passwordController,
-      hintText: 'Password',
+      hintText: AppMessage.password.tr,
       obsecureText: true,
       icon: const Icon(Ionicons.lock_closed),
       

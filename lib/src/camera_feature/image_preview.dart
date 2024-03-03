@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/get_utils.dart';
+import 'package:whats_app_clone/core/I18n/messages.dart';
 import 'package:whats_app_clone/core/reusables/my_text.dart';
 import 'package:whats_app_clone/core/theme/typo.dart';
 
@@ -19,7 +21,7 @@ class _ImagePreviewScreenState extends State<ImagePreviewScreen> {
     return Scaffold(
       appBar: AppBar(
         title: MyText(
-          text: 'Images',
+          text: AppMessage.images.tr,
           style: typoGraphy.textTheme.headlineMedium!.copyWith(
             color: Theme.of(context).colorScheme.primary,
           ),

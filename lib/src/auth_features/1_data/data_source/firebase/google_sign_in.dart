@@ -7,11 +7,11 @@ class GoogleSignIn {
 // GOOGLE SIGN IN METHOD
   Future<UserCredential> signInWithGoogle() async {
     // ignore: unused_local_variable
-    final GoogleSignInAccount? googleUser =
+    final googleUser =
         await GoogleSignIn().signInWithGoogle() as GoogleSignInAccount?;
 
     //auth details from request
-    final GoogleSignInAuthentication googleAuth =
+    final googleAuth =
         await googleUser!.authentication;
 
     // create new credential for user;

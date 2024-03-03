@@ -2,7 +2,9 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/get_utils.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:whats_app_clone/core/I18n/messages.dart';
 import 'package:whats_app_clone/core/reusables/my_text.dart';
 import 'package:whats_app_clone/core/reusables/my_text_field.dart';
 import 'package:whats_app_clone/core/theme/typo.dart';
@@ -66,7 +68,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             Padding(
               padding: const EdgeInsets.all(10),
               child: MyText(
-                text: 'Forgot Password',
+                text: AppMessage.forgotPassword.tr,
                 style: typoGraphy.textTheme.bodyLarge!.copyWith(
                   color: theme.brightness == Brightness.dark
                       ? Colors.grey[200]
@@ -79,8 +81,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             Padding(
               padding: const EdgeInsets.all(10),
               child: MyText(
-                text:
-                    """Enter the email address with your account and we'll send an email with confirmation to reset your password.""",
+                text: AppMessage.fpDescription.tr,
                 style: typoGraphy.textTheme.bodyMedium!.copyWith(
                   color: theme.brightness == Brightness.dark
                       ? Colors.grey[200]
@@ -96,7 +97,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: MyTextField(
                 controller: resetPWController,
-                hintText: 'Backup Email',
+                hintText: AppMessage.backupEmail.tr,
                 obsecureText: false,
                 icon: const Icon(Icons.password_rounded),
               ),
@@ -117,7 +118,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                   ),
                 ),
                 child: MyText(
-                  text: 'Reset Password',
+                  text: AppMessage.resetPassword.tr,
                   style: typoGraphy.textTheme.titleLarge!.copyWith(
                     color: theme.background,
                     fontWeight: FontWeight.w800,

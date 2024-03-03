@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/get_utils.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:whats_app_clone/core/I18n/en.dart';
+import 'package:whats_app_clone/core/I18n/messages.dart';
+import 'package:whats_app_clone/core/I18n/translation.dart';
 import 'package:whats_app_clone/core/reusables/my_text.dart';
 import 'package:whats_app_clone/core/theme/typo.dart';
 import 'package:whats_app_clone/src/contacts_features/domain/model/contacts.dart';
@@ -20,7 +24,7 @@ class ContactScreen extends StatelessWidget {
         ),
         centerTitle: true,
         title: MyText(
-          text: 'Contacts',
+          text: AppMessage.calls.tr,
           style: typoGraphy.textTheme.headlineMedium!
               .copyWith(color: theme.primary),
         ),
@@ -37,7 +41,7 @@ class ContactScreen extends StatelessWidget {
               child: const Icon(Ionicons.person),
             ),
             title: MyText(
-              text: 'New group',
+              text: AppMessage.newGroup.tr,
               style: typoGraphy.textTheme.bodyLarge!.copyWith(
                 color: theme.primary,
               ),
@@ -54,7 +58,7 @@ class ContactScreen extends StatelessWidget {
               child: const Icon(Icons.person_add),
             ),
             title: MyText(
-              text: 'New contact',
+              text: AppMessage.newContact.tr,
               style: typoGraphy.textTheme.bodyLarge!.copyWith(
                 color: theme.primary,
               ),
@@ -74,7 +78,7 @@ class ContactScreen extends StatelessWidget {
               child: const Icon(Icons.group_add),
             ),
             title: MyText(
-              text: 'New community',
+              text: AppMessage.newCommunity.tr,
               style: typoGraphy.textTheme.bodyLarge!.copyWith(
                 color: theme.primary,
               ),
@@ -85,7 +89,9 @@ class ContactScreen extends StatelessWidget {
             padding: const EdgeInsets.only(left: 15),
             alignment: Alignment.centerLeft,
             child: MyText(
-              text: 'Contacts on WhatsApp',
+              text: AppTranslation == EnglishLanguage
+                  ? 'Contacts on WhatsApp'
+                  : 'مخاطبین واتساپ',
               style: typoGraphy.textTheme.titleMedium!
                   .copyWith(color: theme.primary),
             ),

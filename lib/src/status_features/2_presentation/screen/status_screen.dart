@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/get_utils.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:whats_app_clone/core/I18n/messages.dart';
 import 'package:whats_app_clone/core/reusables/my_text.dart';
 import 'package:whats_app_clone/core/theme/typo.dart';
 import 'package:whats_app_clone/src/status_features/2_presentation/widget/status_item_list.dart';
@@ -23,7 +25,7 @@ class StatusScreen extends StatelessWidget {
               // mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 MyText(
-                  text: 'Status',
+                  text: AppMessage.status.tr,
                   style: typoGraphy.textTheme.headlineMedium!.copyWith(
                     color: theme.primary,
                   ),
@@ -43,7 +45,7 @@ class StatusScreen extends StatelessWidget {
             margin: EdgeInsets.only(left: 21.sp),
             alignment: Alignment.centerLeft,
             child: MyText(
-              text: 'Recent updates',
+              text:  AppMessage.recentUpdate.tr ,
               style: typoGraphy.textTheme.titleMedium!.copyWith(
                 color: theme.inversePrimary,
               ),
@@ -87,7 +89,7 @@ class StatusScreen extends StatelessWidget {
         ),
       ),
       subtitle: MyText(
-        text: 'Tap to add status update',
+        text: AppMessage.statusTap.tr,
         style: typoGraphy.textTheme.titleSmall!.copyWith(
           color: theme.primary,
           fontWeight: FontWeight.w600,

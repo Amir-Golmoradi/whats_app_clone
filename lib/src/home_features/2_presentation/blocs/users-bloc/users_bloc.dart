@@ -40,7 +40,7 @@ class UsersBloc extends Bloc<UsersEvent, UsersState> {
   ) async {
     emit(LoadingUserFetching());
     try {
-      final List<UserModel> users = [];
+      final users = <UserModel>[];
       users.addAll(state.users);
       users.insert(0, event.userModel);
       emit(CompleteUserFetching(userModel: event.userModel));
