@@ -12,7 +12,7 @@ class ForgetPasswordButton extends StatelessWidget {
     return Container(
       alignment: Alignment.centerRight,
       child: TextButton(
-        onPressed: () {},
+        onPressed: () => Navigator.pushNamed(context, '/forgot-pw'),
         child: MyText(
           text: 'Forget Password?',
           style: typoGraphy.textTheme.titleMedium!.apply(color: theme.primary),

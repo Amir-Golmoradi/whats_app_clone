@@ -10,7 +10,7 @@ import 'package:whats_app_clone/core/reusables/my_text_field.dart';
 import 'package:whats_app_clone/core/theme/typo.dart';
 import 'package:whats_app_clone/src/auth_features/1_data/data_source/firebase/google_sign_in.dart';
 import 'package:whats_app_clone/src/auth_features/2_presentation/blocs/login-cubit/login_cubit.dart';
-import 'package:whats_app_clone/src/auth_features/2_presentation/widget/forget_password.dart';
+import 'package:whats_app_clone/src/auth_features/2_presentation/widget/forgot_pw_button.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({required this.onTap, super.key});

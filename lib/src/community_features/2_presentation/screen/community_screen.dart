@@ -96,11 +96,3 @@ class CommunityScreen extends StatelessWidget {
     );
   }
 }
-
-/*
-              
-         
-              
-              
-              
-               */
